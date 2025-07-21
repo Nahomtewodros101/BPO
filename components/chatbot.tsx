@@ -78,7 +78,7 @@ export function Chatbot() {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 rounded-full p-4 shadow-lg bg-emerald-500 hover:bg-emerald-600 z-50"
+          className="fixed bottom-6 right-6 h-80 rounded-full p-4 shadow-lg bg-emerald-500 hover:bg-emerald-600 z-50"
           size="icon"
           aria-label="Open Chatbot"
         >
@@ -87,7 +87,7 @@ export function Chatbot() {
       )}
 
       {isOpen && (
-        <Card className="fixed bottom-6 right-6 w-80 h-[450px] flex flex-col shadow-xl z-50 bg-background text-foreground border-emerald-500/30 border-2">
+        <Card className="fixed bottom-6 right-6 w-96 h-[450px] flex flex-col shadow-xl z-50 bg-background text-foreground border-emerald-500/30 border-2">
           <CardHeader className="flex flex-row items-center justify-between p-4 border-b bg-emerald-500 text-white rounded-t-lg">
             <CardTitle className="text-lg font-semibold">MJDAT Chatbot</CardTitle>
             <Button

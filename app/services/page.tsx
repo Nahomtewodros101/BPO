@@ -16,6 +16,7 @@ import {
   HeadphonesIcon,
   Code,
   PieChart,
+  Calendar,
   Settings,
 } from "lucide-react";
 
@@ -73,20 +74,38 @@ const GeometricAccent = ({ className = "" }) => (
     <div className="w-2 h-12 bg-emerald-300"></div>
   </div>
 );
-
+const Implementations = [
+  {
+    title: "Onboarding",
+    description:
+      "Initial consultation to assess specific needs and challenges.",
+  },
+  {
+    title: "Execution",
+    description: "Deployment of dedicated teams for each service area.",
+  },
+  {
+    title: "Scalability",
+    description: "Expansion of services as business needs grow.",
+  },
+  {
+    title: " Monitoring and Optimization",
+    description: "Continuous performance monitoring.",
+  },
+];
 const services = [
   {
     icon: Users,
-    title: "Human Resources",
+    title: "Freight Management:",
     description:
       "Complete HR management including recruitment, payroll, and employee relations.",
     features: [
-      "Talent Acquisition",
+      "Shipment coordination for smooth pickupsand deliveries",
       "Payroll Processing",
-      "Benefits Administration",
-      "Performance Management",
+      "Route optimization for cost-effective  transportation.",
+      "Load planning to maximize truck space utilization",
     ],
-    href: "/services/human-resources",
+    href: "/contact",
     color: "bg-blue-500",
   },
   {
@@ -100,7 +119,7 @@ const services = [
       "Financial Analysis",
       "Budget Planning",
     ],
-    href: "/services/finance-accounting",
+    href: "/contact",
     color: "bg-green-500",
   },
   {
@@ -114,21 +133,18 @@ const services = [
       "Phone Support",
       "Social Media",
     ],
-    href: "/services/customer-support",
+    href: "/contact",
     color: "bg-purple-500",
   },
   {
     icon: TrendingUp,
-    title: "Digital Marketing",
-    description:
-      "Data-driven marketing strategies to grow your brand and increase conversions.",
+    title: "Administrative and Back-Office Support",
+    description: "Data entry and management",
     features: [
-      "SEO/SEM",
-      "Social Media",
-      "Content Marketing",
-      "Email Campaigns",
+      "Data entry and management.",
+      "Performance and financial reporting",
     ],
-    href: "/services/digital-marketing",
+    href: "/contact",
     color: "bg-pink-500",
   },
   {
@@ -142,7 +158,7 @@ const services = [
       "24/7 Monitoring",
       "Technical Support",
     ],
-    href: "/services/it-services",
+    href: "/contact",
     color: "bg-indigo-500",
   },
   {
@@ -156,7 +172,7 @@ const services = [
       "Predictive Analytics",
       "Reporting",
     ],
-    href: "/services/data-analytics",
+    href: "/contact",
     color: "bg-orange-500",
   },
   {
@@ -170,7 +186,7 @@ const services = [
       "Process Optimization",
       "Integration",
     ],
-    href: "/services/process-automation",
+    href: "/contact",
     color: "bg-teal-500",
   },
   {
@@ -184,7 +200,7 @@ const services = [
       "Continuous Improvement",
       "Compliance",
     ],
-    href: "/services/quality-assurance",
+    href: "/contact",
     color: "bg-red-500",
   },
 ];
@@ -235,11 +251,17 @@ export default function ServicesPage() {
               <GeometricDiamond size="w-12 h-12" className="mr-4" />
               <div>
                 <h1 className="text-5xl md:text-6xl font-bold mb-4">
-                  Our Services
+                  Problem Statement
                 </h1>
                 <p className="text-xl text-gray-300 max-w-4xl">
-                  Comprehensive business process outsourcing solutions designed
-                  to transform your operations and accelerate growth.
+                  Business owners, particularly logistics carriers, face
+                  increasing challenges in maintaining cost efficiency, managing
+                  daily operations, and staying competitive in a dynamic market.
+                  They require innovative, comprehensive systems that can handle
+                  repetitive, stressful tasks while enabling growth and
+                  expansion. MJDAT Solutions addresses these needs by offering
+                  cost-effective, scalable, and innovative services tailored to
+                  their requirements
                 </p>
               </div>
             </div>
@@ -254,7 +276,7 @@ export default function ServicesPage() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-emerald-400 mb-2">
-                  500+
+                  50+
                 </div>
                 <div className="text-gray-300">Clients Served</div>
               </div>
@@ -274,7 +296,70 @@ export default function ServicesPage() {
           </motion.div>
         </div>
       </section>
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-1 h-12 bg-emerald-500 mr-4"></div>
+              <Badge className="bg-emerald-500/20 text-emerald-600 border-emerald-500/30">
+                Our Plan
+              </Badge>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Implementation Plan
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              A movement of growth, innovation, and success in transforming
+              businesses worldwide.
+            </p>
+          </motion.div>
 
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-emerald-500/20"></div>
+
+            <div className="space-y-12">
+              {Implementations.map((milestone, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className={`flex items-center ${
+                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  }`}
+                >
+                  <div className="flex-1">
+                    <Card
+                      className={`max-w-md ${
+                        index % 2 === 0 ? "ml-auto mr-8" : "mr-auto ml-8"
+                      } hover:shadow-xl transition-shadow`}
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex items-center mb-3"></div>
+                        <h3 className="text-xl font-semibold mb-3">
+                          {milestone.title}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {milestone.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <div className="w-4 h-4 bg-emerald-500 rounded-full border-4 border-background relative z-10"></div>
+
+                  <div className="flex-1"></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -430,12 +515,11 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Transform Your Business?
-            </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Let MJDAT Solutions handle your business processes while you focus
-              on what matters most - growing your business.
+              We invite you to partner with MJDAT Solutions to revolutionize
+              your logistics operations and achieve unmatched efficiency.
+              Contact us today to discuss how we can tailor our services to meet
+              your specific needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

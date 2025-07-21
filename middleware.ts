@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { verifyToken } from "@/lib/auth"
-import { UserRole } from "@prisma/client"
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get("auth_token")?.value
@@ -34,11 +33,11 @@ export async function middleware(request: NextRequest) {
   }
 
   try {
-    const { userId, role } = await verifyToken(token)
+    const user  = await verifyToken(token)
 
     // Protect admin routes
     if (request.nextUrl.pathname.startsWith("/admin")) {
-      if (role !== UserRole.ADMIN) {
+      if (user?.role !== 'admin') {
         // Redirect to home or a 403 page if not an admin
         return NextResponse.redirect(new URL("/", request.url))
       }

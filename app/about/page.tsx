@@ -237,9 +237,14 @@ export default function AboutPage() {
                   About MJDAT Solutions
                 </h1>
                 <p className="text-xl text-gray-300 max-w-4xl">
-                  Transforming businesses worldwide through innovative BPO
-                  solutions, strategic partnerships, and unwavering commitment
-                  to excellence.
+                  MJDAT Solutions was founded with the mission to transform how
+                  businesses operate by providing tailored, efficient, and
+                  innovative BPO solutions. With a team of experts from diverse
+                  industries, we bring a wealth of knowledge, fresh
+                  perspectives, and a problem-solving mindset to every
+                  challenge. Our services are designed to reduce operational
+                  burdens, improve performance, and ensure compliance, all while
+                  allowing our partners to focus on their core competencies.
                 </p>
               </div>
             </div>
@@ -523,19 +528,19 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-emerald-400 mb-2">
-                    15+
+                    2+
                   </div>
                   <div className="text-gray-300">Countries</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-emerald-400 mb-2">
-                    8
+                    4
                   </div>
                   <div className="text-gray-300">Office Locations</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-emerald-400 mb-2">
-                    200+
+                    2+
                   </div>
                   <div className="text-gray-300">Team Members</div>
                 </div>
@@ -550,13 +555,11 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 text-emerald-400 mr-3" />
-                  <span>Headquarters: New York, USA</span>
+                  <span>Headquarters: Addis Ababa ,Ethiopia</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 text-emerald-400 mr-3" />
-                  <span>
-                    Regional Offices: London, Singapore, Toronto, Sydney
-                  </span>
+                  <span>Regional Offices: London,United States</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 text-emerald-400 mr-3" />
