@@ -46,7 +46,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useAuth } from "@/components/auth-provider"; // Import useAuth
+import { useAuth } from "@/components/auth-provider";
 
 // Interactive SVG Components
 const InteractiveSVGBackground = () => (
@@ -412,7 +412,7 @@ export default function HomePage() {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
-  const { user, loading: loadingUser, logout } = useAuth(); // Use useAuth hook
+  const { user, loading: loadingUser, logout } = useAuth();
 
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -426,13 +426,12 @@ export default function HomePage() {
   const fetchData = async () => {
     try {
       // Fetch news
-      const newsResponse = await fetch("/api/news?published=true&limit=3"); // Updated API route
+      const newsResponse = await fetch("/api/news?published=true&limit=3");
       if (newsResponse.ok) {
         const newsData = await newsResponse.json();
         setNews(newsData.articles || []);
       } else {
         console.error("Failed to fetch news:", newsResponse.statusText);
-        // Fallback to static data if API fails
         setNews([
           {
             id: "1",
@@ -465,13 +464,12 @@ export default function HomePage() {
       }
 
       // Fetch jobs
-      const jobsResponse = await fetch("/api/jobs?limit=4"); // Updated API route
+      const jobsResponse = await fetch("/api/jobs?limit=4");
       if (jobsResponse.ok) {
         const jobsData = await jobsResponse.json();
         setJobs(jobsData.jobs || []);
       } else {
         console.error("Failed to fetch jobs:", jobsResponse.statusText);
-        // Fallback to static data if API fails
         setJobs([
           {
             id: "1",
@@ -541,7 +539,6 @@ export default function HomePage() {
       }
     } catch (error) {
       console.error("Error fetching data:", error);
-      // Fallback to static data on network error
       setNews([
         {
           id: "1",
@@ -650,7 +647,7 @@ export default function HomePage() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-emerald-500/20"
+        className="fixed top-0 w-full z-50 bg-background/90 mb-6 backdrop-blur-md border-b border-emerald-500/20"
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -704,7 +701,6 @@ export default function HomePage() {
               >
                 Contact
               </Link>
-              {/* Auth Links or User Profile */}
               {loadingUser ? (
                 <div className="animate-pulse">
                   <div className="h-10 w-32 bg-gray-200 dark:bg-gray-700 rounded"></div>
@@ -857,7 +853,6 @@ export default function HomePage() {
                 >
                   Contact
                 </Link>
-                {/* Mobile Auth Links or User Profile */}
                 {loadingUser ? (
                   <div className="animate-pulse">
                     <div className="h-10 w-full bg-gray-200 dark:bg-gray-700 rounded"></div>
@@ -921,13 +916,13 @@ export default function HomePage() {
       {/* Hero Section with Interactive SVG */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center bg-transparent"
+        className="relative min-h-screen flex items-center justify-center bg-transparent pt-16 sm:pt-0"
       >
         <InteractiveSVGBackground />
         <GeometricAccent className="left-0 top-1/4" />
         <GeometricAccent className="left-0 top-1/2" />
         <GeometricAccent className="left-0 top-3/4" />
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto px-4 mt-5 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -950,11 +945,14 @@ export default function HomePage() {
                   ease: "easeInOut",
                 }}
               >
-                <GeometricDiamond size="w-24 h-24" className="mr-6" />
+                <GeometricDiamond
+                  size="w-16 h-16 sm:w-24 sm:h-24"
+                  className="mr-6"
+                />
               </motion.div>
               <div className="text-left">
                 <motion.h1
-                  className="text-6xl md:text-8xl font-bold text-slate-900 dark:text-white mb-2"
+                  className="text-4xl sm:text-6xl md:text-8xl font-bold text-slate-900 dark:text-white mb-2"
                   animate={{
                     textShadow: [
                       "0 0 0px #10b981",
@@ -967,7 +965,7 @@ export default function HomePage() {
                   MJDAT
                 </motion.h1>
                 <motion.h2
-                  className="text-4xl md:text-6xl font-bold text-emerald-500"
+                  className="text-3xl sm:text-4xl md:text-6xl font-bold text-emerald-500"
                   animate={{ scale: [1, 1.02, 1] }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 >
@@ -976,7 +974,7 @@ export default function HomePage() {
               </div>
             </motion.div>
             <motion.p
-              className="text-xl md:text-2xl text-slate-600 dark:text-gray-300 mb-8 max-w-2xl md:max-w-6xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-gray-300 mb-8 max-w-2xl md:max-w-4xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -1750,7 +1748,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-4">
             <div>
-              <div className="flex items-center  space-x-3 mb-4">
+              <div className="flex items-center space-x-3 mb-4">
                 <GeometricDiamond size="w-10 h-10" />
                 <span className="text-xl font-bold">MJDAT Solutions</span>
               </div>
@@ -1762,7 +1760,6 @@ export default function HomePage() {
                 www.MJDATSolutions.com
               </div>
             </div>
-
             <div>
               <h4 className="font-semibold mb-4 text-white">Company</h4>
               <ul className="space-y-2 text-gray-400">
@@ -1850,7 +1847,9 @@ export default function HomePage() {
             <p className="text-gray-400">
               © 2025/26 MJDAT Solutions. All rights reserved.
             </p>
-            <p className=" text-black dark:text-white">Main Developer- Nahom Tewodros </p>
+            <p className="text-black dark:text-white">
+              Main Developer- Nahom Tewodros
+            </p>
             <div className="flex items-center mt-4 md:mt-0">
               <HexagonalRings className="w-16 h-10 text-emerald-500/30 mr-4" />
               <GeometricDiamond size="w-8 h-8" />
